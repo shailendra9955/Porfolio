@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Shailendra</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">Welcome to the Portfolio</div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+        <div class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </nav>
+
+</header>
+
+
+<section class="page-section">
+
+    <div class="section-title">
+        <h2>Contact Me</h2>
+    </div>
+
+    <div class="contact-container">
+
+        <form class="contact-form" id="contactForm" novalidate>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name"
+                maxlength="100"
+                autocomplete="name"
+                required>
+
+            <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            placeholder="Mobile Number"
+            maxlength="10"
+            autocomplete="tel"
+            inputmode="tel"
+            required>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                maxlength="150"
+                autocomplete="email"
+                required>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="6"
+                maxlength="3000"
+                placeholder="Type your message here..!"
+                required
+            ></textarea>
+
+            <!-- Honeypot field. Normal visitors should leave this empty. -->
+            <div class="website-field" aria-hidden="true">
+                <label for="website">Website</label>
+                <span class="optional" style="margin-left:400px;color:red"><i>(Optional)</i></span>
+                <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    placeholder="Type your website URL here..!"
+                    tabindex="-1"
+                    autocomplete="off"
+                >
+            </div>
+
+            <button type="submit" id="submitButton">
+                Submit
+            </button>
+
+            <p id="formStatus" role="status" aria-live="polite"></p>
+
+        </form>
+
+        <div class="contact-details">
+
+            <h3>Contact Details</h3>
+
+            <p>Email : <a href="mailto:chauhanshailedra9955@gmail.com">chauhanshailedra9955@gmail.com</a></p>
+            <!--<p>Phone : +91 81153 25279</p>-->
+            <p>Location : Hyderabad, India</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="social-icons">
+
+        <a href="https://www.linkedin.com/in/shailendra-kumar-chauhan-7b0735275/">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <a href="https://github.com/shailendra9955">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://www.facebook.com/Shailendra9955">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.instagram.com/shailendra_9955/">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+    </div>
+
+    <p>© 2026 Shailendra's Portfolio</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+/*
+ * IMPORTANT:
+ *
+ * Replace this with your Google Apps Script
+ * Web App URL after deployment.
+ */
+
+const CONTACT_API_URL =
+    "https://script.google.com/macros/s/AKfycbxjpD_ep9fwDcQRMRk8vjYoPC_Ne5Hu9Wf1nBhrBc05gYFm18B0ue1THQ0B42Y";
+
+
+const form =
+    document.getElementById("contactForm");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const formStatus =
+    document.getElementById("formStatus");
+
+
+form.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+
+        // Reset status.
+        formStatus.textContent = "";
+        formStatus.style.color = "";
+
+
+        // Get values.
+        const name =
+            document
+                .getElementById("name")
+                .value
+                .trim();
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+        const mobile =
+            document
+                .getElementById("mobile")
+                .value
+                .trim();
+
+        const message =
+            document
+                .getElementById("message")
+                .value
+                .trim();
+
+        const website =
+            document
+                .getElementById("website")
+                .value
+                .trim();
+
+        const company =
+            document
+                .getElementById("company")
+                .value
+                .trim();
+
+
+        // -----------------------------------------
+        // REQUIRED VALIDATION
+        // -----------------------------------------
+
+        if (
+            !name ||
+            !email ||
+            !mobile ||
+            !message
+        ) {
+
+            showError(
+                "Please fill in all required fields."
+            );
+
+            return;
+        }
+
+
+        // -----------------------------------------
+        // LENGTH VALIDATION
+        // -----------------------------------------
+
+        if (name.length > 100) {
+
+            showError(
+                "Name is too long."
+            );
+
+            return;
+        }
+
+
+        if (email.length > 150) {
+
+            showError(
+                "Email address is too long."
+            );
+
+            return;
+        }
+
+
+        if (mobile.length > 30) {
+
+            showError(
+                "Mobile number is too long."
+            );
+
+            return;
+        }
+
+
+        if (message.length > 3000) {
+
+            showError(
+                "Message is too long."
+            );
+
+            return;
+        }
+
+
+        if (website.length > 500) {
+
+            showError(
+                "Website URL is too long."
+            );
+
+            return;
+        }
+
+
+        // -----------------------------------------
+        // EMAIL VALIDATION
+        // -----------------------------------------
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+
+            showError(
+                "Please enter a valid email address."
+            );
+
+            return;
+        }
+
+
+        // -----------------------------------------
+        // MOBILE VALIDATION
+        // -----------------------------------------
+
+        const normalizedMobile =
+            mobile.replace(/[\s\-()]/g, "");
+
+
+        const mobilePattern =
+            /^\+?[0-9]{7,20}$/;
+
+
+        if (
+            !mobilePattern.test(
+                normalizedMobile
+            )
+        ) {
+
+            showError(
+                "Please enter a valid mobile number."
+            );
+
+            return;
+        }
+
+
+        // -----------------------------------------
+        // WEBSITE VALIDATION
+        // -----------------------------------------
+
+        if (website) {
+
+            try {
+
+                let url = website;
+
+                if (
+                    !url.startsWith("http://") &&
+                    !url.startsWith("https://")
+                ) {
+
+                    url =
+                        "https://" + url;
+
+                }
+
+                const parsed =
+                    new URL(url);
+
+
+                if (
+                    parsed.protocol !== "http:" &&
+                    parsed.protocol !== "https:"
+                ) {
+
+                    throw new Error(
+                        "Invalid protocol"
+                    );
+                }
+
+            } catch (error) {
+
+                showError(
+                    "Please enter a valid website URL."
+                );
+
+                return;
+            }
+        }
+
+
+        // -----------------------------------------
+        // DISABLE BUTTON
+        // -----------------------------------------
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Sending...";
+
+
+        try {
+
+            /*
+             * Using text/plain avoids unnecessary
+             * browser CORS preflight problems that can
+             * occur with application/json when using
+             * a public Google Apps Script Web App.
+             */
+
+            const response =
+                await fetch(
+                    CONTACT_API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                name,
+                                email,
+                                mobile,
+                                message,
+                                website,
+                                company
+                            })
+                    }
+                );
+
+
+            const result =
+                await response
+                    .json()
+                    .catch(() => ({}));
+
+
+            if (
+                !response.ok ||
+                !result.success
+            ) {
+
+                throw new Error(
+                    result.error ||
+                    "Unable to send your message."
+                );
+            }
+
+
+            // Clear form after successful submission.
+            form.reset();
+
+
+            formStatus.textContent =
+                "Message sent successfully. Thank you for contacting me!";
+
+
+            formStatus.style.color =
+                "#b7ffcf";
+
+        } catch (error) {
+
+            console.error(
+                "Contact form error:",
+                error
+            );
+
+
+            formStatus.textContent =
+                error.message ||
+                "Something went wrong. Please try again later.";
+
+
+            formStatus.style.color =
+                "#ffb4b4";
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Submit";
+        }
+
+    }
+);
+
+
+/**
+ * Display validation error.
+ */
+function showError(message) {
+
+    formStatus.textContent =
+        message;
+
+    formStatus.style.color =
+        "#ffb4b4";
+}
+</script>
+
+</body>
+</html>
