@@ -119,22 +119,6 @@
                 required
             >
 
-
-            <!-- =========================================
-                 WEBSITE
-            ========================================== -->
-
-            <!--<input
-                type="url"
-                id="website"
-                name="website"
-                placeholder="Website URL"
-                maxlength="500"
-                autocomplete="url"
-                required
-            >-->
-
-
             <!-- =========================================
                  COMPANY
             ========================================== -->
@@ -340,9 +324,6 @@ const mobileInput =
 const emailInput =
     document.getElementById("email");
 
-const websiteInput =
-    document.getElementById("website");
-
 const companyInput =
     document.getElementById("company");
 
@@ -362,8 +343,6 @@ const MAX_NAME_LENGTH = 100;
 const MAX_MOBILE_LENGTH = 20;
 
 const MAX_EMAIL_LENGTH = 150;
-
-const MAX_WEBSITE_LENGTH = 500;
 
 const MAX_COMPANY_LENGTH = 150;
 
@@ -522,122 +501,6 @@ function normalizeText(value) {
         .trim();
 
 }
-
-
-/* =====================================================
-   WEBSITE VALIDATION
-===================================================== */
-
-function isValidWebsite(value) {
-
-    try {
-
-        // Remove leading/trailing spaces
-        value = value.trim();
-
-
-        // Website cannot be empty
-        if (value === "") {
-            return false;
-        }
-
-
-        // Maximum length
-        if (value.length > 500) {
-            return false;
-        }
-
-
-        /*
-         * Automatically add https:// if the user
-         * did not enter http:// or https://.
-         *
-         * Accepted:
-         *
-         * example.com
-         * www.example.com
-         * https://example.com
-         * http://example.com
-         */
-
-        let urlValue = value;
-
-        if (
-            !urlValue.startsWith("http://") &&
-            !urlValue.startsWith("https://")
-        ) {
-
-            urlValue =
-                "https://" + urlValue;
-
-        }
-
-
-        // Create URL object
-        const url =
-            new URL(urlValue);
-
-
-        // Only HTTP and HTTPS are allowed
-        if (
-            url.protocol !== "http:" &&
-            url.protocol !== "https:"
-        ) {
-
-            return false;
-
-        }
-
-
-        // Hostname must exist
-        if (
-            !url.hostname
-        ) {
-
-            return false;
-
-        }
-
-
-        /*
-         * Reject spaces inside the URL.
-         */
-
-        if (
-            /\s/.test(value)
-        ) {
-
-            return false;
-
-        }
-
-
-        /*
-         * Reject hostname without a dot,
-         * except localhost.
-         */
-
-        if (
-            !url.hostname.includes(".") &&
-            url.hostname !== "localhost"
-        ) {
-
-            return false;
-
-        }
-
-
-        return true;
-
-    } catch (error) {
-
-        return false;
-
-    }
-
-}
-
-
 
 /* =====================================================
    STATUS FUNCTIONS
@@ -825,57 +688,6 @@ function validateForm() {
         );
 
         emailInput.focus();
-
-        return false;
-
-    }
-
-
-    /* -----------------------------------------------
-       WEBSITE
-    ------------------------------------------------ */
-
-    const website =
-        websiteInput.value.trim();
-
-
-    if (!website) {
-
-        showError(
-            "Please enter your website URL."
-        );
-
-        websiteInput.focus();
-
-        return false;
-
-    }
-
-
-    if (
-        website.length > MAX_WEBSITE_LENGTH
-    ) {
-
-        showError(
-            "Website URL cannot exceed 500 characters."
-        );
-
-        websiteInput.focus();
-
-        return false;
-
-    }
-
-
-    if (
-        !isValidWebsite(website)
-    ) {
-
-        showError(
-            "Please enter a valid website URL starting with http:// or https://."
-        );
-
-        websiteInput.focus();
 
         return false;
 
@@ -1078,9 +890,6 @@ form.addEventListener(
                 .trim()
                 .toLowerCase();
 
-        const website =
-            websiteInput.value.trim();
-
         const company =
             normalizeText(
                 companyInput.value
@@ -1132,9 +941,6 @@ form.addEventListener(
 
                                 email:
                                     email,
-
-                                website:
-                                    website,
 
                                 company:
                                     company,
@@ -1339,7 +1145,6 @@ messageInput.addEventListener(
     nameInput,
     mobileInput,
     emailInput,
-    websiteInput,
     companyInput,
     messageInput
 ].forEach(
