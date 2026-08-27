@@ -320,7 +320,7 @@
 ===================================================== */
 
 const CONTACT_API_URL =
-    "https://script.google.com/macros/s/AKfycbxmKcBK_M0D1H06XhFfWedNmn2hQp6xhqCtWwU2YG_z_BxseN4WylYklsX8nv2ePhKN4w/exec";
+    "https://script.google.com/macros/s/AKfycby2WJhYLBUwEGT_FPKK1qHqiOzmO98ufbe6xPTQ4ZMNEeok7r9s4aAVhq1A96kgwESoCA/exec";
 
 
 /* =====================================================
@@ -655,32 +655,89 @@ function validateForm() {
 
     clearStatus();
 
-
-    /* -----------------------------------------------
-       NAME
-    ------------------------------------------------ */
-
     const name =
-        normalizeText(
-            nameInput.value
-        );
+        nameInput.value.trim();
 
+    const mobile =
+        mobileInput.value.trim();
+
+    const email =
+        emailInput.value.trim();
+
+    const website =
+        websiteInput.value.trim();
+
+    const company =
+        companyInput.value.trim();
+
+    const message =
+        messageInput.value.trim();
+
+
+    /* =============================================
+       CHECK EVERY FIELD
+    ============================================== */
 
     if (!name) {
 
-        showError(
-            "Please enter your name."
-        );
-
+        showError("Please enter your name.");
         nameInput.focus();
-
         return false;
 
     }
 
 
+    if (!mobile) {
+
+        showError("Please enter your mobile number.");
+        mobileInput.focus();
+        return false;
+
+    }
+
+
+    if (!email) {
+
+        showError("Please enter your email address.");
+        emailInput.focus();
+        return false;
+
+    }
+
+
+    if (!website) {
+
+        showError("Please enter your website URL.");
+        websiteInput.focus();
+        return false;
+
+    }
+
+
+    if (!company) {
+
+        showError("Please enter your company name.");
+        companyInput.focus();
+        return false;
+
+    }
+
+
+    if (!message) {
+
+        showError("Please enter your message.");
+        messageInput.focus();
+        return false;
+
+    }
+
+
+    /* =============================================
+       NAME
+    ============================================== */
+
     if (
-        name.length > MAX_NAME_LENGTH
+        name.length > 100
     ) {
 
         showError(
@@ -709,33 +766,16 @@ function validateForm() {
     }
 
 
-    /* -----------------------------------------------
+    /* =============================================
        MOBILE
-    ------------------------------------------------ */
-
-    const mobile =
-        mobileInput.value.trim();
-
-
-    if (!mobile) {
-
-        showError(
-            "Please enter your mobile number."
-        );
-
-        mobileInput.focus();
-
-        return false;
-
-    }
-
+    ============================================== */
 
     if (
         !mobilePattern.test(mobile)
     ) {
 
         showError(
-            "Please enter a valid mobile number using 7 to 20 digits."
+            "Please enter a valid mobile number."
         );
 
         mobileInput.focus();
@@ -745,35 +785,16 @@ function validateForm() {
     }
 
 
-    /* -----------------------------------------------
+    /* =============================================
        EMAIL
-    ------------------------------------------------ */
-
-    const email =
-        emailInput.value
-            .trim()
-            .toLowerCase();
-
-
-    if (!email) {
-
-        showError(
-            "Please enter your email address."
-        );
-
-        emailInput.focus();
-
-        return false;
-
-    }
-
+    ============================================== */
 
     if (
-        email.length > MAX_EMAIL_LENGTH
+        email.length > 150
     ) {
 
         showError(
-            "Email address cannot exceed 150 characters."
+            "Email cannot exceed 150 characters."
         );
 
         emailInput.focus();
@@ -798,29 +819,12 @@ function validateForm() {
     }
 
 
-    /* -----------------------------------------------
+    /* =============================================
        WEBSITE
-    ------------------------------------------------ */
-
-    const website =
-        websiteInput.value.trim();
-
-
-    if (!website) {
-
-        showError(
-            "Please enter your website URL."
-        );
-
-        websiteInput.focus();
-
-        return false;
-
-    }
-
+    ============================================== */
 
     if (
-        website.length > MAX_WEBSITE_LENGTH
+        website.length > 500
     ) {
 
         showError(
@@ -849,35 +853,16 @@ function validateForm() {
     }
 
 
-    /* -----------------------------------------------
+    /* =============================================
        COMPANY
-    ------------------------------------------------ */
-
-    const company =
-        normalizeText(
-            companyInput.value
-        );
-
-
-    if (!company) {
-
-        showError(
-            "Please enter your company name."
-        );
-
-        companyInput.focus();
-
-        return false;
-
-    }
-
+    ============================================== */
 
     if (
-        company.length > MAX_COMPANY_LENGTH
+        company.length > 150
     ) {
 
         showError(
-            "Company name cannot exceed 150 characters."
+            "Company cannot exceed 150 characters."
         );
 
         companyInput.focus();
@@ -902,26 +887,9 @@ function validateForm() {
     }
 
 
-    /* -----------------------------------------------
+    /* =============================================
        MESSAGE
-    ------------------------------------------------ */
-
-    const message =
-        messageInput.value.trim();
-
-
-    if (!message) {
-
-        showError(
-            "Please enter your message."
-        );
-
-        messageInput.focus();
-
-        return false;
-
-    }
-
+    ============================================== */
 
     if (
         message.length < 5
@@ -939,7 +907,7 @@ function validateForm() {
 
 
     if (
-        message.length > MAX_MESSAGE_LENGTH
+        message.length > 3000
     ) {
 
         showError(
@@ -952,11 +920,6 @@ function validateForm() {
 
     }
 
-
-    /*
-     * Prevent a message consisting only
-     * of punctuation/symbols.
-     */
 
     if (
         !/[A-Za-zÀ-ÖØ-öø-ÿ0-9]/.test(message)
@@ -973,15 +936,9 @@ function validateForm() {
     }
 
 
-    /* -----------------------------------------------
+    /* =============================================
        HONEYPOT
-    ------------------------------------------------ */
-
-    /*
-     * A normal visitor should never fill this field.
-     *
-     * If it contains anything, assume it is a bot.
-     */
+    ============================================== */
 
     if (
         honeypotInput.value.trim() !== ""
@@ -996,13 +953,10 @@ function validateForm() {
     }
 
 
-    /* -----------------------------------------------
-       ALL VALID
-    ------------------------------------------------ */
-
     return true;
 
 }
+
 
 
 /* =====================================================
