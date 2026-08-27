@@ -914,6 +914,29 @@ form.addEventListener(
         const message =
             messageInput.value.trim();
 
+        /* -------------------------------------------
+           GET CLOUDFLARE TURNSTILE TOKEN
+        -------------------------------------------- */
+
+        const turnstileToken =
+            document.querySelector(
+            '[name="cf-turnstile-response"]'
+            )?.value || "";
+
+        /* -------------------------------------------
+           CHECK TURNSTILE TOKEN
+        -------------------------------------------- */
+
+        if (!turnstileToken) {
+
+        showError(
+            "Please complete the security verification."
+            );
+
+            return;
+
+            }
+
 
         /* -------------------------------------------
            DISABLE BUTTON
@@ -965,7 +988,10 @@ form.addEventListener(
                                     message,
 
                                 formWebsite:
-                                    honeypotInput.value
+                                    honeypotInput.value,
+                                
+                                turnstileToken:
+                                    turnstileToken
 
                             })
                     }
