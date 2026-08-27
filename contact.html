@@ -193,8 +193,12 @@
             <div
             class="cf-turnstile"
             data-sitekey="0x4AAAAAAEds0GqPsC3c10W0"
-            data-theme="dark">
+            data-theme="dark"
+            data-callback="onTurnstileSuccess"
+            data-expired-callback="onTurnstileExpired"
+            data-error-callback="onTurnstileError">
             </div>
+
 
 
             
@@ -864,6 +868,43 @@ function validateForm() {
     return true;
 
 }
+
+
+
+
+    /* =====================================================
+       CLOUDFLARE TURNSTILE CALLBACKS
+    ===================================================== */
+
+function onTurnstileSuccess(token) {
+
+    console.log("Turnstile verification successful.");
+
+}
+
+
+function onTurnstileExpired() {
+
+    showError(
+        "Security verification expired. Please verify again."
+    );
+
+}
+
+
+function onTurnstileError(errorCode) {
+
+    console.error(
+        "Turnstile error:",
+        errorCode
+    );
+
+    showError(
+        "Security verification failed. Please try again."
+    );
+
+}
+
 
 
 /* =====================================================
