@@ -33,18 +33,3 @@ hoverElements.forEach(element => {
     });
 
 });
-
-
-// Contact Form Demo
-
-const form = document.querySelector(".contact-form");
-
-form.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    alert("Thank You! Your message has been received.");
-
-    form.reset();
-
-});
