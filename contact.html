@@ -532,29 +532,53 @@ function isValidWebsite(value) {
 
     try {
 
+        // Remove leading/trailing spaces
+        value = value.trim();
+
+
+        // Website cannot be empty
+        if (value === "") {
+            return false;
+        }
+
+
+        // Maximum length
+        if (value.length > 500) {
+            return false;
+        }
+
+
         /*
-         * Require explicit HTTP/HTTPS.
+         * Automatically add https:// if the user
+         * did not enter http:// or https://.
          *
-         * Examples:
+         * Accepted:
          *
+         * example.com
+         * www.example.com
          * https://example.com
          * http://example.com
          */
 
+        let urlValue = value;
+
         if (
-            !value.startsWith("http://") &&
-            !value.startsWith("https://")
+            !urlValue.startsWith("http://") &&
+            !urlValue.startsWith("https://")
         ) {
 
-            return false;
+            urlValue =
+                "https://" + urlValue;
 
         }
 
 
+        // Create URL object
         const url =
-            new URL(value);
+            new URL(urlValue);
 
 
+        // Only HTTP and HTTPS are allowed
         if (
             url.protocol !== "http:" &&
             url.protocol !== "https:"
@@ -565,11 +589,10 @@ function isValidWebsite(value) {
         }
 
 
-        /*
-         * A hostname must exist.
-         */
-
-        if (!url.hostname) {
+        // Hostname must exist
+        if (
+            !url.hostname
+        ) {
 
             return false;
 
@@ -577,7 +600,21 @@ function isValidWebsite(value) {
 
 
         /*
-         * Basic hostname validation.
+         * Reject spaces inside the URL.
+         */
+
+        if (
+            /\s/.test(value)
+        ) {
+
+            return false;
+
+        }
+
+
+        /*
+         * Reject hostname without a dot,
+         * except localhost.
          */
 
         if (
@@ -599,6 +636,7 @@ function isValidWebsite(value) {
     }
 
 }
+
 
 
 /* =====================================================
