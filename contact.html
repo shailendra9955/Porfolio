@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Contact Shailendra through the portfolio contact form."
+    >
+
     <title>Contact | Shailendra</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
 </head>
 
 <body>
@@ -21,11 +29,25 @@
 
         <ul class="nav-links">
 
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li>
+                <a href="skills.html">Skills</a>
+            </li>
+
+            <li>
+                <a href="projects.html">Projects</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
 
         </ul>
 
@@ -41,12 +63,25 @@
 <section class="page-section">
 
     <div class="section-title">
+
         <h2>Contact Me</h2>
+
     </div>
+
 
     <div class="contact-container">
 
-        <form class="contact-form" id="contactForm" novalidate>
+
+        <form
+            class="contact-form"
+            id="contactForm"
+            novalidate
+        >
+
+
+            <!-- =========================================
+                 NAME
+            ========================================== -->
 
             <input
                 type="text"
@@ -55,17 +90,29 @@
                 placeholder="Name"
                 maxlength="100"
                 autocomplete="name"
-                required>
+                required
+            >
+
+
+            <!-- =========================================
+                 MOBILE
+            ========================================== -->
 
             <input
-            type="tel"
-            id="mobile"
-            name="mobile"
-            placeholder="Mobile Number"
-            maxlength="10"
-            autocomplete="tel"
-            inputmode="tel"
-            required>
+                type="tel"
+                id="mobile"
+                name="mobile"
+                placeholder="Mobile Number"
+                maxlength="20"
+                autocomplete="tel"
+                inputmode="numeric"
+                required
+            >
+
+
+            <!-- =========================================
+                 EMAIL
+            ========================================== -->
 
             <input
                 type="email"
@@ -74,7 +121,43 @@
                 placeholder="Email"
                 maxlength="150"
                 autocomplete="email"
-                required>
+                required
+            >
+
+
+            <!-- =========================================
+                 WEBSITE
+            ========================================== -->
+
+            <input
+                type="url"
+                id="website"
+                name="website"
+                placeholder="Website URL"
+                maxlength="500"
+                autocomplete="url"
+                required
+            >
+
+
+            <!-- =========================================
+                 COMPANY
+            ========================================== -->
+
+            <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Company"
+                maxlength="150"
+                autocomplete="organization"
+                required
+            >
+
+
+            <!-- =========================================
+                 MESSAGE
+            ========================================== -->
 
             <textarea
                 id="message"
@@ -85,37 +168,89 @@
                 required
             ></textarea>
 
-            <!-- Honeypot field. Normal visitors should leave this empty. -->
-            <div class="website-field" aria-hidden="true">
-                <label for="website">Website</label>
-                <span class="optional" style="margin-left:400px;color:red"><i>(Optional)</i></span>
+
+            <!-- =========================================
+                 HIDDEN HONEYPOT
+                 
+                 Normal users never see this field.
+                 Bots may automatically fill it.
+            ========================================== -->
+
+            <div
+                class="website-field"
+                aria-hidden="true"
+                style="
+                    position:absolute;
+                    left:-9999px;
+                    width:1px;
+                    height:1px;
+                    overflow:hidden;
+                "
+            >
+
+                <label for="formWebsite">
+                    Website
+                </label>
+
                 <input
                     type="text"
-                    id="website"
-                    name="website"
-                    placeholder="Type your website URL here..!"
+                    id="formWebsite"
+                    name="formWebsite"
                     tabindex="-1"
                     autocomplete="off"
+                    value=""
                 >
+
             </div>
 
-            <button type="submit" id="submitButton">
+
+            <!-- =========================================
+                 SUBMIT BUTTON
+            ========================================== -->
+
+            <button
+                type="submit"
+                id="submitButton"
+            >
                 Submit
             </button>
 
-            <p id="formStatus" role="status" aria-live="polite"></p>
+
+            <!-- =========================================
+                 FORM STATUS
+            ========================================== -->
+
+            <p
+                id="formStatus"
+                role="status"
+                aria-live="polite"
+            ></p>
+
 
         </form>
+
+
+        <!-- =============================================
+             CONTACT DETAILS
+        ============================================== -->
 
         <div class="contact-details">
 
             <h3>Contact Details</h3>
 
-            <p>Email : <a href="mailto:chauhanshailedra9955@gmail.com">chauhanshailedra9955@gmail.com</a></p>
-            <!--<p>Phone : +91 81153 25279</p>-->
-            <p>Location : Hyderabad, India</p>
+            <p>
+                Email :
+                <a href="mailto:chauhanshailedra9955@gmail.com">
+                    chauhanshailedra9955@gmail.com
+                </a>
+            </p>
+
+            <p>
+                Location : Hyderabad, India
+            </p>
 
         </div>
+
 
     </div>
 
@@ -126,41 +261,71 @@
 
     <div class="social-icons">
 
-        <a href="https://www.linkedin.com/in/shailendra-kumar-chauhan-7b0735275/">
+        <a
+            href="https://www.linkedin.com/in/shailendra-kumar-chauhan-7b0735275/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+        >
             <i class="fa-brands fa-linkedin"></i>
         </a>
 
-        <a href="https://github.com/shailendra9955">
+
+        <a
+            href="https://github.com/shailendra9955"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+        >
             <i class="fa-brands fa-github"></i>
         </a>
 
-        <a href="https://www.facebook.com/Shailendra9955">
+
+        <a
+            href="https://www.facebook.com/Shailendra9955"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+        >
             <i class="fa-brands fa-facebook-f"></i>
         </a>
 
-        <a href="https://www.instagram.com/shailendra_9955/">
+
+        <a
+            href="https://www.instagram.com/shailendra_9955/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+        >
             <i class="fa-brands fa-instagram"></i>
         </a>
 
     </div>
 
-    <p>© 2026 Shailendra's Portfolio</p>
+
+    <p>
+        © 2026 Shailendra's Portfolio
+    </p>
 
 </footer>
 
+
 <script src="script.js"></script>
 
+
 <script>
-/*
- * IMPORTANT:
- *
- * Replace this with your Google Apps Script
- * Web App URL after deployment.
- */
+
+/* =====================================================
+   GOOGLE APPS SCRIPT WEB APP URL
+===================================================== */
 
 const CONTACT_API_URL =
-    "https://script.google.com/macros/s/AKfycbzDwpdkY9NdAMVFnoeHwogg_9rZMqvLSB7mmU_jHHRCj70aRW9ldE4jhOaNnRgtGSdhaA/exec";
+    "https://script.google.com/macros/s/AKfycbxmKcBK_M0D1H06XhFfWedNmn2hQp6xhqCtWwU2YG_z_BxseN4WylYklsX8nv2";
 
+
+/* =====================================================
+   GET FORM ELEMENTS
+===================================================== */
 
 const form =
     document.getElementById("contactForm");
@@ -171,6 +336,678 @@ const submitButton =
 const formStatus =
     document.getElementById("formStatus");
 
+const nameInput =
+    document.getElementById("name");
+
+const mobileInput =
+    document.getElementById("mobile");
+
+const emailInput =
+    document.getElementById("email");
+
+const websiteInput =
+    document.getElementById("website");
+
+const companyInput =
+    document.getElementById("company");
+
+const messageInput =
+    document.getElementById("message");
+
+const honeypotInput =
+    document.getElementById("formWebsite");
+
+
+/* =====================================================
+   CONSTANTS
+===================================================== */
+
+const MAX_NAME_LENGTH = 100;
+
+const MAX_MOBILE_LENGTH = 20;
+
+const MAX_EMAIL_LENGTH = 150;
+
+const MAX_WEBSITE_LENGTH = 500;
+
+const MAX_COMPANY_LENGTH = 150;
+
+const MAX_MESSAGE_LENGTH = 3000;
+
+
+/* =====================================================
+   REGULAR EXPRESSIONS
+===================================================== */
+
+/*
+ * Name:
+ *
+ * Allows:
+ * A-Z
+ * a-z
+ * spaces
+ * apostrophe
+ * hyphen
+ * period
+ *
+ * Examples:
+ *
+ * Shailendra
+ * Shailendra Kumar
+ * O'Connor
+ * Mary-Jane
+ * Mr. Sharma
+ */
+
+const namePattern =
+    /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ .'-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/;
+
+
+/*
+ * Mobile:
+ *
+ * Allows:
+ *
+ * +919876543210
+ * 919876543210
+ * 9876543210
+ *
+ * Only digits after optional +.
+ */
+
+const mobilePattern =
+    /^\+?[0-9]{7,20}$/;
+
+
+/*
+ * Email:
+ *
+ * Basic but practical email validation.
+ */
+
+const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+
+/*
+ * Company:
+ *
+ * Allows:
+ *
+ * Letters
+ * Numbers
+ * Spaces
+ * &
+ * .
+ * ,
+ * '
+ * -
+ * /
+ * (
+ * )
+ */
+
+const companyPattern =
+    /^[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?:[ &.,'()\/-][A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*$/;
+
+
+/* =====================================================
+   ALLOW ONLY VALID MOBILE CHARACTERS
+===================================================== */
+
+mobileInput.addEventListener(
+    "input",
+    function () {
+
+        let value =
+            this.value;
+
+        /*
+         * Remove everything except:
+         *
+         * numbers
+         * +
+         */
+
+        value =
+            value.replace(
+                /[^0-9+]/g,
+                ""
+            );
+
+
+        /*
+         * + is allowed only at the
+         * beginning.
+         */
+
+        if (value.includes("+")) {
+
+            value =
+                "+" +
+                value
+                    .replace(/\+/g, "")
+                    .replace(/\D/g, "");
+
+        }
+
+
+        /*
+         * Maximum 20 digits.
+         */
+
+        const hasPlus =
+            value.startsWith("+");
+
+        const digits =
+            hasPlus
+                ? value.substring(1)
+                : value;
+
+        value =
+            (hasPlus ? "+" : "") +
+            digits.substring(0, MAX_MOBILE_LENGTH);
+
+
+        this.value =
+            value;
+
+    }
+);
+
+
+/* =====================================================
+   REMOVE EXTRA SPACES FROM TEXT FIELDS
+===================================================== */
+
+function normalizeText(value) {
+
+    return value
+        .replace(/\s+/g, " ")
+        .trim();
+
+}
+
+
+/* =====================================================
+   WEBSITE VALIDATION
+===================================================== */
+
+function isValidWebsite(value) {
+
+    try {
+
+        /*
+         * Require explicit HTTP/HTTPS.
+         *
+         * Examples:
+         *
+         * https://example.com
+         * http://example.com
+         */
+
+        if (
+            !value.startsWith("http://") &&
+            !value.startsWith("https://")
+        ) {
+
+            return false;
+
+        }
+
+
+        const url =
+            new URL(value);
+
+
+        if (
+            url.protocol !== "http:" &&
+            url.protocol !== "https:"
+        ) {
+
+            return false;
+
+        }
+
+
+        /*
+         * A hostname must exist.
+         */
+
+        if (!url.hostname) {
+
+            return false;
+
+        }
+
+
+        /*
+         * Basic hostname validation.
+         */
+
+        if (
+            !url.hostname.includes(".") &&
+            url.hostname !== "localhost"
+        ) {
+
+            return false;
+
+        }
+
+
+        return true;
+
+    } catch (error) {
+
+        return false;
+
+    }
+
+}
+
+
+/* =====================================================
+   STATUS FUNCTIONS
+===================================================== */
+
+function showError(message) {
+
+    formStatus.textContent =
+        message;
+
+    formStatus.style.color =
+        "#ffb4b4";
+
+}
+
+
+function showSuccess(message) {
+
+    formStatus.textContent =
+        message;
+
+    formStatus.style.color =
+        "#b7ffcf";
+
+}
+
+
+/* =====================================================
+   CLEAR STATUS
+===================================================== */
+
+function clearStatus() {
+
+    formStatus.textContent =
+        "";
+
+    formStatus.style.color =
+        "";
+
+}
+
+
+/* =====================================================
+   VALIDATE FORM
+===================================================== */
+
+function validateForm() {
+
+    clearStatus();
+
+
+    /* -----------------------------------------------
+       NAME
+    ------------------------------------------------ */
+
+    const name =
+        normalizeText(
+            nameInput.value
+        );
+
+
+    if (!name) {
+
+        showError(
+            "Please enter your name."
+        );
+
+        nameInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        name.length > MAX_NAME_LENGTH
+    ) {
+
+        showError(
+            "Name cannot exceed 100 characters."
+        );
+
+        nameInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        !namePattern.test(name)
+    ) {
+
+        showError(
+            "Name can contain only letters, spaces, hyphens, apostrophes and periods."
+        );
+
+        nameInput.focus();
+
+        return false;
+
+    }
+
+
+    /* -----------------------------------------------
+       MOBILE
+    ------------------------------------------------ */
+
+    const mobile =
+        mobileInput.value.trim();
+
+
+    if (!mobile) {
+
+        showError(
+            "Please enter your mobile number."
+        );
+
+        mobileInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        !mobilePattern.test(mobile)
+    ) {
+
+        showError(
+            "Please enter a valid mobile number using 7 to 20 digits."
+        );
+
+        mobileInput.focus();
+
+        return false;
+
+    }
+
+
+    /* -----------------------------------------------
+       EMAIL
+    ------------------------------------------------ */
+
+    const email =
+        emailInput.value
+            .trim()
+            .toLowerCase();
+
+
+    if (!email) {
+
+        showError(
+            "Please enter your email address."
+        );
+
+        emailInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        email.length > MAX_EMAIL_LENGTH
+    ) {
+
+        showError(
+            "Email address cannot exceed 150 characters."
+        );
+
+        emailInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        !emailPattern.test(email)
+    ) {
+
+        showError(
+            "Please enter a valid email address."
+        );
+
+        emailInput.focus();
+
+        return false;
+
+    }
+
+
+    /* -----------------------------------------------
+       WEBSITE
+    ------------------------------------------------ */
+
+    const website =
+        websiteInput.value.trim();
+
+
+    if (!website) {
+
+        showError(
+            "Please enter your website URL."
+        );
+
+        websiteInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        website.length > MAX_WEBSITE_LENGTH
+    ) {
+
+        showError(
+            "Website URL cannot exceed 500 characters."
+        );
+
+        websiteInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        !isValidWebsite(website)
+    ) {
+
+        showError(
+            "Please enter a valid website URL starting with http:// or https://."
+        );
+
+        websiteInput.focus();
+
+        return false;
+
+    }
+
+
+    /* -----------------------------------------------
+       COMPANY
+    ------------------------------------------------ */
+
+    const company =
+        normalizeText(
+            companyInput.value
+        );
+
+
+    if (!company) {
+
+        showError(
+            "Please enter your company name."
+        );
+
+        companyInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        company.length > MAX_COMPANY_LENGTH
+    ) {
+
+        showError(
+            "Company name cannot exceed 150 characters."
+        );
+
+        companyInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        !companyPattern.test(company)
+    ) {
+
+        showError(
+            "Company name contains invalid characters."
+        );
+
+        companyInput.focus();
+
+        return false;
+
+    }
+
+
+    /* -----------------------------------------------
+       MESSAGE
+    ------------------------------------------------ */
+
+    const message =
+        messageInput.value.trim();
+
+
+    if (!message) {
+
+        showError(
+            "Please enter your message."
+        );
+
+        messageInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        message.length < 5
+    ) {
+
+        showError(
+            "Message must contain at least 5 characters."
+        );
+
+        messageInput.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        message.length > MAX_MESSAGE_LENGTH
+    ) {
+
+        showError(
+            "Message cannot exceed 3000 characters."
+        );
+
+        messageInput.focus();
+
+        return false;
+
+    }
+
+
+    /*
+     * Prevent a message consisting only
+     * of punctuation/symbols.
+     */
+
+    if (
+        !/[A-Za-zÀ-ÖØ-öø-ÿ0-9]/.test(message)
+    ) {
+
+        showError(
+            "Please enter a meaningful message."
+        );
+
+        messageInput.focus();
+
+        return false;
+
+    }
+
+
+    /* -----------------------------------------------
+       HONEYPOT
+    ------------------------------------------------ */
+
+    /*
+     * A normal visitor should never fill this field.
+     *
+     * If it contains anything, assume it is a bot.
+     */
+
+    if (
+        honeypotInput.value.trim() !== ""
+    ) {
+
+        showError(
+            "Unable to submit the form."
+        );
+
+        return false;
+
+    }
+
+
+    /* -----------------------------------------------
+       ALL VALID
+    ------------------------------------------------ */
+
+    return true;
+
+}
+
+
+/* =====================================================
+   FORM SUBMISSION
+===================================================== */
 
 form.addEventListener(
     "submit",
@@ -179,228 +1016,66 @@ form.addEventListener(
         event.preventDefault();
 
 
-        // Reset status.
-        formStatus.textContent = "";
-        formStatus.style.color = "";
+        /*
+         * Validate everything before
+         * sending anything to Google Apps Script.
+         */
+
+        if (!validateForm()) {
+
+            return;
+
+        }
 
 
-        // Get values.
+        /* -------------------------------------------
+           GET CLEAN VALUES
+        -------------------------------------------- */
+
         const name =
-            document
-                .getElementById("name")
-                .value
-                .trim();
-
-        const email =
-            document
-                .getElementById("email")
-                .value
-                .trim();
+            normalizeText(
+                nameInput.value
+            );
 
         const mobile =
-            document
-                .getElementById("mobile")
-                .value
-                .trim();
+            mobileInput.value.trim();
 
-        const message =
-            document
-                .getElementById("message")
-                .value
-                .trim();
+        const email =
+            emailInput.value
+                .trim()
+                .toLowerCase();
 
         const website =
-            document
-                .getElementById("website")
-                .value
-                .trim();
+            websiteInput.value.trim();
 
         const company =
-            document
-                .getElementById("company")
-                .value
-                .trim();
-
-
-        // -----------------------------------------
-        // REQUIRED VALIDATION
-        // -----------------------------------------
-
-        if (
-            !name ||
-            !email ||
-            !mobile ||
-            !message
-        ) {
-
-            showError(
-                "Please fill in all required fields."
+            normalizeText(
+                companyInput.value
             );
 
-            return;
-        }
+        const message =
+            messageInput.value.trim();
 
 
-        // -----------------------------------------
-        // LENGTH VALIDATION
-        // -----------------------------------------
+        /* -------------------------------------------
+           DISABLE BUTTON
+        -------------------------------------------- */
 
-        if (name.length > 100) {
-
-            showError(
-                "Name is too long."
-            );
-
-            return;
-        }
-
-
-        if (email.length > 150) {
-
-            showError(
-                "Email address is too long."
-            );
-
-            return;
-        }
-
-
-        if (mobile.length > 30) {
-
-            showError(
-                "Mobile number is too long."
-            );
-
-            return;
-        }
-
-
-        if (message.length > 3000) {
-
-            showError(
-                "Message is too long."
-            );
-
-            return;
-        }
-
-
-        if (website.length > 500) {
-
-            showError(
-                "Website URL is too long."
-            );
-
-            return;
-        }
-
-
-        // -----------------------------------------
-        // EMAIL VALIDATION
-        // -----------------------------------------
-
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailPattern.test(email)) {
-
-            showError(
-                "Please enter a valid email address."
-            );
-
-            return;
-        }
-
-
-        // -----------------------------------------
-        // MOBILE VALIDATION
-        // -----------------------------------------
-
-        const normalizedMobile =
-            mobile.replace(/[\s\-()]/g, "");
-
-
-        const mobilePattern =
-            /^\+?[0-9]{7,20}$/;
-
-
-        if (
-            !mobilePattern.test(
-                normalizedMobile
-            )
-        ) {
-
-            showError(
-                "Please enter a valid mobile number."
-            );
-
-            return;
-        }
-
-
-        // -----------------------------------------
-        // WEBSITE VALIDATION
-        // -----------------------------------------
-
-        if (website) {
-
-            try {
-
-                let url = website;
-
-                if (
-                    !url.startsWith("http://") &&
-                    !url.startsWith("https://")
-                ) {
-
-                    url =
-                        "https://" + url;
-
-                }
-
-                const parsed =
-                    new URL(url);
-
-
-                if (
-                    parsed.protocol !== "http:" &&
-                    parsed.protocol !== "https:"
-                ) {
-
-                    throw new Error(
-                        "Invalid protocol"
-                    );
-                }
-
-            } catch (error) {
-
-                showError(
-                    "Please enter a valid website URL."
-                );
-
-                return;
-            }
-        }
-
-
-        // -----------------------------------------
-        // DISABLE BUTTON
-        // -----------------------------------------
-
-        submitButton.disabled = true;
+        submitButton.disabled =
+            true;
 
         submitButton.textContent =
             "Sending...";
 
 
+        clearStatus();
+
+
         try {
 
-            /*
-             * Using text/plain avoids unnecessary
-             * browser CORS preflight problems that can
-             * occur with application/json when using
-             * a public Google Apps Script Web App.
-             */
+            /* ---------------------------------------
+               SEND DATA TO GOOGLE APPS SCRIPT
+            ---------------------------------------- */
 
             const response =
                 await fetch(
@@ -415,45 +1090,89 @@ form.addEventListener(
 
                         body:
                             JSON.stringify({
-                                name,
-                                email,
-                                mobile,
-                                message,
-                                website,
-                                company
+
+                                name:
+                                    name,
+
+                                mobile:
+                                    mobile,
+
+                                email:
+                                    email,
+
+                                website:
+                                    website,
+
+                                company:
+                                    company,
+
+                                message:
+                                    message,
+
+                                formWebsite:
+                                    honeypotInput.value
+
                             })
                     }
                 );
 
 
-            const result =
-                await response
-                    .json()
-                    .catch(() => ({}));
+            /* ---------------------------------------
+               READ RESPONSE
+            ---------------------------------------- */
+
+            let result = {};
+
+            try {
+
+                result =
+                    await response.json();
+
+            } catch (jsonError) {
+
+                result = {};
+
+            }
+
+
+            /* ---------------------------------------
+               CHECK SERVER RESPONSE
+            ---------------------------------------- */
+
+            if (
+                !response.ok
+            ) {
+
+                throw new Error(
+                    "Server returned an error."
+                );
+
+            }
 
 
             if (
-                !response.ok ||
                 !result.success
             ) {
 
                 throw new Error(
                     result.error ||
-                    "Unable to send your message."
+                    "Unable to submit your message."
                 );
+
             }
 
 
-            // Clear form after successful submission.
+            /* ---------------------------------------
+               SUCCESS
+            ---------------------------------------- */
+
             form.reset();
 
 
-            formStatus.textContent =
-                "Message sent successfully. Thank you for contacting me!";
+            showSuccess(
+                "Message sent successfully. Thank you for contacting me!"
+            );
 
-
-            formStatus.style.color =
-                "#b7ffcf";
 
         } catch (error) {
 
@@ -463,37 +1182,154 @@ form.addEventListener(
             );
 
 
-            formStatus.textContent =
+            showError(
                 error.message ||
-                "Something went wrong. Please try again later.";
+                "Something went wrong. Please try again later."
+            );
 
-
-            formStatus.style.color =
-                "#ffb4b4";
 
         } finally {
 
-            submitButton.disabled = false;
+            /* ---------------------------------------
+               ENABLE BUTTON AGAIN
+            ---------------------------------------- */
+
+            submitButton.disabled =
+                false;
 
             submitButton.textContent =
                 "Submit";
+
         }
 
     }
 );
 
 
-/**
- * Display validation error.
- */
-function showError(message) {
+/* =====================================================
+   PREVENT PASTE OF INVALID MOBILE DATA
+===================================================== */
 
-    formStatus.textContent =
-        message;
+mobileInput.addEventListener(
+    "paste",
+    function (event) {
 
-    formStatus.style.color =
-        "#ffb4b4";
-}
+        const pastedText =
+            (
+                event.clipboardData ||
+                window.clipboardData
+            ).getData("text");
+
+
+        /*
+         * Allow only a valid mobile
+         * character set.
+         */
+
+        if (
+            !/^\+?[0-9\s\-()]+$/.test(
+                pastedText
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   EMAIL NORMALIZATION
+===================================================== */
+
+emailInput.addEventListener(
+    "blur",
+    function () {
+
+        this.value =
+            this.value
+                .trim()
+                .toLowerCase();
+
+    }
+);
+
+
+/* =====================================================
+   NORMALIZE TEXT INPUTS
+===================================================== */
+
+nameInput.addEventListener(
+    "blur",
+    function () {
+
+        this.value =
+            normalizeText(
+                this.value
+            );
+
+    }
+);
+
+
+companyInput.addEventListener(
+    "blur",
+    function () {
+
+        this.value =
+            normalizeText(
+                this.value
+            );
+
+    }
+);
+
+
+messageInput.addEventListener(
+    "blur",
+    function () {
+
+        this.value =
+            this.value.trim();
+
+    }
+);
+
+
+/* =====================================================
+   CLEAR ERROR WHEN USER STARTS CORRECTING
+===================================================== */
+
+[
+    nameInput,
+    mobileInput,
+    emailInput,
+    websiteInput,
+    companyInput,
+    messageInput
+].forEach(
+    function (input) {
+
+        input.addEventListener(
+            "input",
+            function () {
+
+                if (
+                    formStatus.textContent
+                ) {
+
+                    clearStatus();
+
+                }
+
+            }
+        );
+
+    }
+);
+
 </script>
 
 </body>
